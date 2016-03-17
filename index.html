@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Album</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    
+  </div>
+  <div id="overlay"></div>
+  <script type="x-tmpl-mustache" id="defaultTemplate">
+<div class="default">
+  <h1>My Albums</h1>
+  <div class="albumsContainer">
+    {{#albums}}
+    <div class="album">
+      <img src="{{thumb}}" />
+      <span class="title">{{name}}</span>
+    </div>
+    {{/albums}}
+  </div>
+</div>
+  </script>
+  <script type="x-tmpl-mustache" id="albumTemplate">
+<div class="albumContainer">
+  <ul class="sidebar">
+    {{#albums}}
+    <li><a href="#">{{.}}</a></li>
+    {{/albums}}
+  </ul>
+  <div class="results">
+    <h2>{{name}}</h2>
+    <div class="imagesContainer">
+      {{#images}}
+      <div class="image">
+        <img src="{{thumb}}" data-url="{{url}}"/>
+        <span class="title">{{name}}</span>
+      </div>
+      {{/images}}
+    </div>
+  </div>
+</div>
+  </script>
+  <script type="x-tmpl-mustache" id="overlayTemplate">
+<button>Back to {{albumName}}</button>
+<h2>{{name}}</h2>
+<img src="{{url}}" />
+  </script>
+  <script src="https://code.jquery.com/jquery-1.12.1.min.js" integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
